@@ -82,7 +82,9 @@
     $("li").eq(3).append("<li>I love doggos!</li>");
     $("aside").empty();
     $("aside").append("<p>Sorry about the silly list</p>");
-    $("body").css("background-color", "rgb("+$("input").eq(0).val()+","+$("input").eq(1).val()+","+$("input").eq(2).val()+")");
+    $(".form-control").on("change input", function(){
+      $("body").css("background-color", "rgb("+$("input").eq(0).val()+","+$("input").eq(1).val()+","+$("input").eq(2).val()+")");
+    });
     $("img").on("click", function(){
       $(this).remove();
     })

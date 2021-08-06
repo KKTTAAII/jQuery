@@ -16,18 +16,20 @@
         <br>
         <button id="submitBtn">Submit</button>
     </form>
+    <ul id="moviesList">
+
+    </ul>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
         $("form").on("submit", function(evt){
             evt.preventDefault();
             let movieTitle = $('input').eq(0).val();
             let rating = $('input').eq(1).val();
-            let addedMovie = $("body").append("<li>" + movieTitle + " is " + "rated " + ": " + rating +"</li>")
+            let addedMovie = $("ul").append("<li>" + movieTitle + " is " + "rated " + ": " + rating +"</li>")
             let deleteBtn = addedMovie.append("<button>" + "x" + "</button>");
-            deleteBtn.addClass("deleteBtn");
-            $("input").val(" ");
-            deleteBtn.on("click", function(){
-                addedMovie.remove();
+            $("button").eq(1).addClass("deleteBtn");
+            $("#moviesList ul").on("click", "li button", function(){
+                $(this).remove();
             })
         })
 
